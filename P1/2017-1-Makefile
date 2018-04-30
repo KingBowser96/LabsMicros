@@ -10,7 +10,7 @@ INCLUDE=-I.
 LIBDIR=
 LIBS=
 
-CPP=i586-poky-linux-gpp
+CPP=i586-poky-linux-g++
 CC=i586-poky-linux-gcc
 CFLAGS=$(FLAGS) $(INCLUDE)
 LDFLAGS=$(LIBDIR) $(LIBS)
@@ -18,12 +18,12 @@ LDFLAGS=$(LIBDIR) $(LIBS)
 all: prog
 
 prog: $(OBJS)
-  $(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+  $(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)			<< qual a moral desses CXX???
 
 %.o : %.cpp
   $(CXX) -c $(CFLAGS) $<
 
-%.o : %.c
+%.o : %.c			
   $(CC) -c $(CFLAGS) $<
     
 -include $(C_SRCS:.c=.d) $(CPP_SRCS:.cpp=.d)
